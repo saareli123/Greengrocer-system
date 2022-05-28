@@ -1,0 +1,10 @@
+{
+    "git-branch-wise-session.autoSaveBranchOnSwitch": true,
+    "git-branch-wise-session.shouldAutoRestoreOnBranchSwitches": true,
+    "files.autoSave": "afterDelay",
+    "window.title": "${rootName}",
+    "workbench.editor.wrapTabs": true,
+    "debug.inlineValues": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "search.collapseResults": "alwaysCollapse",
+}

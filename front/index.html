@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Greengrocer-system</title>
     <meta charset="utf-8">
@@ -16,17 +17,17 @@
     <!-- js -->
     <script src="index.js"></script>
     <script>
-        $(function(){
-            $("#nav-placeholder").load("../components/navbar/navbar.html");
-            $("#login-placeholder").load("../components/login/login.html");
-            $("#footer-placeholder").load("../components/footer/footer.html");
+        $(function() {
+            $("#home-placeholder").load("./pages/components/home/home.html");
         });
 
+        function goToHome() {
+            window.location.href = "./pages/home/home.html"
+        }
     </script>
 </head>
-<body class="main_container">
-    <div id="nav-placeholder"></div>
-    <div id="login-placeholder"></div>
-    <div id="footer-placeholder"></div>
+
+<body class="main_container" onload="goToHome()">
 </body>
+
 </html>
