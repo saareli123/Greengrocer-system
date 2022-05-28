@@ -1,0 +1,16 @@
+---------------------------------------------------
+
+Cpanel Username: b14_31831483
+Cpanel Password: kXp9J*%mASYh*Uf
+Your URL: http://greengrocer-sys.byethost14.com or http://www.greengrocer-sys.byethost14.com
+FTP Server : ftpupload.net
+FTP Login : b14_31831483
+FTP Password : kXp9J*%mASYh*Uf
+MySQL Database Name: MUST CREATE IN CPANEL
+MySQL Username : b14_31831483
+MySQL Password : nf1584c6
+MySQL Server: SEE THE CPANEL
+
+
+Cpanel URL: http://cpanel.byethost14.com/
+---------------------------------------------------
