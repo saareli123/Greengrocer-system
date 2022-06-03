@@ -1,35 +1,11 @@
 <?php
-header('Content-Type: application/json');
-
-$aResult = array();
-
-if (!isset($_POST['functionname'])) {
-    $aResult['error'] = 'No function name!';
-}
-
-if (!isset($aResult['error'])) {
-
-    switch ($_POST['functionname']) {
-        case 'getTable':
-            if (!is_array($_POST['arguments'])) {
-                $aResult['error'] = 'Error in arguments! Table name is missing.';
-            } else {
-                makeConnectionToDB();
-                $aResult['result'] = getTable($_POST['arguments'][0]);
-                echo json_encode($aResult);
-                break;
-            }
-        default:
-            $aResult['error'] = 'Not found function ' . $_POST['functionname'] . '!';
-            break;
-    }
-}
-
-
-
+// header('Content-Type: application/json');
+//    echo '<script>console.log("After Connection to DB")</script>';
+    // $tmp_sql = "SELECT GUID, productName, stockAmount, sellPrice, purchasePrice  FROM Vegetables";
 function getTable($tableName)
 {
     $conn = makeConnectionToDB();
+
     $sql = "SELECT * FROM $tableName";
     $result = queryDB($conn, $sql);
     closeConnectionDB($conn);
@@ -56,24 +32,14 @@ function queryDB($conn, $sql)
 {
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-        // output data of each row
-        return $result;
+        return $result->fetch_all();
     } else {
-        echo "0 results";
+        return null;
     }
-    // $sql = "SELECT GUID, productName, stockAmount, sellPrice, purchasePrice  FROM Vegetables";
-    // $result = $conn->query($sql);
-    // if ($result->num_rows > 0) {
-    //     // output data of each row
-    //     while ($row = $result->fetch_assoc()) {
-    //         echo  "GUID:" . $row["GUID"] . "," . "productName:" . $row["productName"] . "," . "stockAmount:" . $row["stockAmount"] . "," . "sellPrice:" . $row["sellPrice"] . "," . "purchasePrice:" . $row["purchasePrice"] . "\r\n";
-    //     }
-    // } else {
-    //     echo "0 results";
-    // }
 }
 
 function closeConnectionDB($conn)
 {
     $conn->close();
 }
+?>
