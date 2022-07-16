@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Greengrocer-system</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <script>
+        $(function() {
+            $("#nav-placeholder").load("../components/navbar/navbar.html");
+            $("#footer-placeholder").load("../components/footer/footer.html");
+        });
+
+        function loadCart() {
+            const total = document.getElementById("total");
+            let tmpTotal = 0;
+            const cart = JSON.parse(localStorage.getItem('tmpCart'));
+            const table = document.getElementById("cartTable");
+            cart.forEach(item => {
+                let row = table.insertRow();
+                let productName = row.insertCell(0);
+                productName.innerHTML = item[1];
+                let sellPrice = row.insertCell(1);
+                sellPrice.innerHTML = item[3]
+                let selection = row.insertCell(2);
+                selection.innerHTML = item[5]
+                let total = row.insertCell(3);
+                total.innerHTML = (item[3] * item[5]).toFixed(2);
+                tmpTotal += parseFloat((item[3] * item[5]).toFixed(2));
+            });
+            total.innerHTML = tmpTotal.toFixed(2);
+            localStorage.setItem('totalPayment', tmpTotal.toFixed(2));
+        }
+
+        function saveTotal() {
+            const total = document.getElementById("total").innerHTML;
+            localStorage.setItem('totalPayment', total);
+        }
+    </script>
+
+    <style>
+        .cart {
+            max-height: 300px;
+            overflow: scroll;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body onload="loadCart()" style="padding-bottom: 15%;">
+    <div id="nav-placeholder"></div>
+
+    <div class="container">
+        </br>
+        <h2>Cart Table</h2>
+        <div class="cart">
+            <table id="cartTable" class="table table-striped" style="margin-bottom: 10px;">
+                <thead>
+                    <tbody>
+                        <tr>
+                            <th>productName</th>
+                            <th>sellPrice</th>
+                            <th>selection</th>
+                            <th>total</th>
+                        </tr>
+                    </tbody>
+                </thead>
+            </table>
+        </div>
+        </br>
+        <h3>Total: <span id="total">0</span>$</h3>
+        <a href="../catalog/catalog.php"><button class="btn btn-primary" value="Continue To Cart" onClick="saveCart()">Edit Cart</button></a>
+        <a href="../payment/payment.php"><button class="btn btn-success" value="Continue To Cart" onClick="saveTotal()">Continue to Payment</button></a>
+    </div>
+    <div id="footer-placeholder"></div>
+</body>
+
+</html>

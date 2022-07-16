@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Greengrocer-system</title>
+    <meta charset="utf-8">
+    <script>
+        $(function() {
+            $("#home-placeholder").load("./pages/components/home/home.html");
+        });
+
+        function goToHome() {
+            window.location.href = "./pages/home/home.html"
+        }
+    </script>
+</head>
+
+<body class="main_container" onload="goToHome()">
+</body>
+
+</html>
