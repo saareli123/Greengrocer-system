@@ -36,8 +36,6 @@
             overflow: scroll;
             margin-top: 10px;
         }
-
-        }
     </style>
 </head>
 

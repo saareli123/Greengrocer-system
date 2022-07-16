@@ -33,76 +33,85 @@
             .pad {
                 padding-bottom: 15%;
             }
+        }
 
+        .back {
+            background-image: url("../../images/insights.png");
+            background-repeat: no-repeat;
+            background-size: 20%;
+        }
+
+        .tbl {
+            background-color: white;
+            padding: 2%;
         }
     </style>
 </head>
 
 <body>
     <div id="nav-placeholder"></div>
+    <div class="back">
+        <div class="container pad">
+            </br>
+            <h2>Total Profit per Product</h2>
+            <?php
+            include "../../phpExecutor.php";
+            $ProfitInsights = getProfitInsights();
+            echo '</br>';
+            echo '<table id="" class="table table-striped tbl" style="margin-bottom: 10px;"><thead><tr><th>GUID</th><th>productName</th><th>Total Profit</th></tr></thead>';
+            foreach ($ProfitInsights as $row) {
+                echo '<form method="post">';
+                echo '<tr">
+                            <td>' . $row[1] . '</td>
+                            <td>' . $row[0] . '</td>
+                            <td>' . number_format($row[3], 2) . '$</td>
+                        </tr>';
+                echo '</form>';
+            }
+            echo "</table>";
+            echo '</br>';
+            ?>
 
-    <div class="container pad">
-        </br>
-        <h2>Total Profit per Product</h2>
-        <?php
-        include "../../phpExecutor.php";
-        $ProfitInsights = getProfitInsights();
-        echo '</br>';
-        echo '<table id="" class="table table-striped" style="margin-bottom: 10px;"><thead><tr><th>GUID</th><th>productName</th><th>Total Profit</th></tr></thead>';
-        foreach ($ProfitInsights as $row) {
-            echo '<form method="post">';
-            echo '<tr">
-                        <td>' . $row[1] . '</td>
-                        <td>' . $row[0] . '</td>
-                        <td>' . number_format($row[3], 2) . '$</td>
-                    </tr>';
-            echo '</form>';
-        }
-        echo "</table>";
-        echo '</br>';
-        ?>
+            </br>
+            <h2>Total Sells & KG per Product</h2>
+            <?php
+            $ProfitInsights = getSellsInsights();
+            echo '</br>';
+            echo '<table id="" class="table table-striped tbl" style="margin-bottom: 10px;"><thead><tr><th>GUID</th><th>productName</th><th>Total Number of Sells</th><th>Total KG sold</th></tr></thead>';
+            foreach ($ProfitInsights as $row) {
+                echo '<form method="post">';
+                echo '<tr">
+                            <td>' . $row[1] . '</td>
+                            <td>' . $row[0] . '</td>
+                            <td>' . $row[3] . '</td>
+                            <td>' . number_format($row[4], 2) . '</td>
+                        </tr>';
+                echo '</form>';
+            }
+            echo "</table>";
+            echo '</br>';
+            ?>
 
-        </br>
-        <h2>Total Sells & KG per Product</h2>
-        <?php
-        $ProfitInsights = getSellsInsights();
-        echo '</br>';
-        echo '<table id="" class="table table-striped" style="margin-bottom: 10px;"><thead><tr><th>GUID</th><th>productName</th><th>Total Number of Sells</th><th>Total KG sold</th></tr></thead>';
-        foreach ($ProfitInsights as $row) {
-            echo '<form method="post">';
-            echo '<tr">
-                        <td>' . $row[1] . '</td>
-                        <td>' . $row[0] . '</td>
-                        <td>' . $row[3] . '</td>
-                        <td>' . number_format($row[4], 2) . '</td>
-                    </tr>';
-            echo '</form>';
-        }
-        echo "</table>";
-        echo '</br>';
-        ?>
-
-        </br>
-        <h2>Unsold Products</h2>
-        <?php
-        $ProfitInsights = getUnsoldInsights();
-        echo '</br>';
-        echo '<table id="" class="table table-striped" style="margin-bottom: 10px;"><thead><tr><th>GUID</th><th>productName</th><th>Stock Amount</th></tr></thead>';
-        foreach ($ProfitInsights as $row) {
-            echo '<form method="post">';
-            echo '<tr">
-                        <td>' . $row[0] . '</td>
-                        <td>' . $row[1] . '</td>
-                        <td>' . $row[2] . '</td>
-                    </tr>';
-            echo '</form>';
-        }
-        echo "</table>";
-        echo '</br>';
-        ?>
-
-    </div>
-    <div id="footer-placeholder"></div>
+            </br>
+            <h2>Unsold Products</h2>
+            <?php
+            $ProfitInsights = getUnsoldInsights();
+            echo '</br>';
+            echo '<table id="" class="table table-striped tbl" style="margin-bottom: 10px;"><thead><tr><th>GUID</th><th>productName</th><th>Stock Amount</th></tr></thead>';
+            foreach ($ProfitInsights as $row) {
+                echo '<form method="post">';
+                echo '<tr">
+                            <td>' . $row[0] . '</td>
+                            <td>' . $row[1] . '</td>
+                            <td>' . $row[2] . '</td>
+                        </tr>';
+                echo '</form>';
+            }
+            echo "</table>";
+            echo '</br>';
+            ?>
+        </div>
+        <div id="footer-placeholder"></div>
 </body>
 
 </html>
