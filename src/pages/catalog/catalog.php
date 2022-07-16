@@ -111,8 +111,8 @@
                     echo '<tr id="' . $row[0] . '">
                         <td>' . $row[0] . '</td>
                         <td>' . $row[1] . '</td>
-                        <td>' . $row[2] . '</td>
-                        <td>' . $row[3] . '</td>
+                        <td>' . $row[2] . ' KG</td>
+                        <td>' . $row[3] . '$</td>
                         <td hidden>' . $row[4] . '</td>
                         <td><input type="number" name="selection" step="0.1" min="0" max=' . $row[2] . ' value="0"></input></td>
                     </tr>';
@@ -136,8 +136,8 @@
                     echo '<tr id="' . $row[0] . '">
                         <td>' . $row[0] . '</td>
                         <td>' . $row[1] . '</td>
-                        <td>' . $row[2] . '</td>
-                        <td>' . $row[3] . '</td>
+                        <td>' . $row[2] . ' KG</td>
+                        <td>' . $row[3] . '$</td>
                         <td hidden>' . $row[4] . '</td>
                         <td><input type="number" name="selection" step="0.1" min="0" max=' . $row[2] . ' value="0"></input></td>
                     </tr>';

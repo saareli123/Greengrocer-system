@@ -29,11 +29,11 @@
                 let productName = row.insertCell(0);
                 productName.innerHTML = item[1];
                 let sellPrice = row.insertCell(1);
-                sellPrice.innerHTML = item[3]
+                sellPrice.innerHTML = item[3] + "$";
                 let selection = row.insertCell(2);
-                selection.innerHTML = item[5]
+                selection.innerHTML = item[5];
                 let total = row.insertCell(3);
-                total.innerHTML = (item[3] * item[5]).toFixed(2);
+                total.innerHTML = (item[3] * item[5]).toFixed(2) + "$";
                 tmpTotal += parseFloat((item[3] * item[5]).toFixed(2));
             });
             total.innerHTML = tmpTotal.toFixed(2);

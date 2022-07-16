@@ -230,8 +230,8 @@
                         <input type="hidden" name="imageURL" value="' . $row[5] . '">
                         <td>' . $row[0] . '</td>
                         <td>' . $row[1] . '</td>
-                        <td>' . $row[2] . '</td>
-                        <td>' . $row[3] . '</td>
+                        <td>' . $row[2] . ' KG</td>
+                        <td>' . $row[3] . '$</td>
                         <td>
                             <input class="btn btn-primary" type="submit" name="edit" value="Edit"/>                
                             <input class="btn btn-danger" type="submit" name="delete" value="Delete"/>
@@ -267,8 +267,8 @@
                         <input type="hidden" name="imageURL" value="' . $row[5] . '">
                         <td>' . $row[0] . '</td>
                         <td>' . $row[1] . '</td>
-                        <td>' . $row[2] . '</td>
-                        <td>' . $row[3] . '</td>
+                        <td>' . $row[2] . ' KG</td>
+                        <td>' . $row[3] . '$</td>
                         <td>
                             <input class="btn btn-primary" type="submit" name="edit" value="Edit""/>                
                             <input class="btn btn-danger" type="submit" name="delete" value="Delete"/>
@@ -276,8 +276,6 @@
                     </tr>';
                     echo '</form>';
                 }
-                //echo "</table>";
-                //echo '</br>';
                 ?>
                 </table>
                 </br>
