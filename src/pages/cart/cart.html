@@ -52,6 +52,8 @@
             overflow: scroll;
             margin-top: 10px;
         }
+        
+        .video {}
     </style>
 </head>
 
@@ -62,7 +64,7 @@
         </br>
         <h2>Cart Table</h2>
         <div class="cart">
-            <table id="cartTable" class="table table-striped" style="margin-bottom: 10px;">
+            <table id="cartTable" class="table table-striped" style="margin-bottom: 10px; background-color: white">
                 <thead>
                     <tbody>
                         <tr>
@@ -80,6 +82,9 @@
         <a href="../catalog/catalog.php"><button class="btn btn-primary" value="Continue To Cart" onClick="saveCart()">Edit Cart</button></a>
         <a href="../payment/payment.php"><button class="btn btn-success" value="Continue To Cart" onClick="saveTotal()">Continue to Payment</button></a>
     </div>
+    <video autoPlay loop muted className="video" style="width:100vw;height: 100vh;object-fit: cover;position: fixed;left: 0;right: 0;top: 0;bottom: 0;z-index: -1;">
+        <source src="../../videos/foodClip.mp4" />
+    </video>
     <div id="footer-placeholder"></div>
 </body>
 
